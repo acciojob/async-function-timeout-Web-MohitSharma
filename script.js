@@ -1,10 +1,15 @@
-//your JS code here. If required.
-let inputText = document.getElementById("text").value;
-let delay = document.getElementById("delay").value;
+let inputText = document.getElementById("text");
+let delay = document.getElementById("delay");
+let output = document.getElementById("output");
+let btn = document.getElementById("btn");
 
-async function provideDelay(){
-	let text = await setTimeout(()=>{
-		output.innerHTML = inputText
-	},delay)
+async function provideDelay() {
+
+    await new Promise((resolve) => {
+        setTimeout(resolve, delay.value);
+    });
+
+    output.innerHTML = inputText.value;
 }
 
+btn.addEventListener("click", provideDelay);
